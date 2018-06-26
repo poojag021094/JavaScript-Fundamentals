@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Javascript Fundamentals</title>
-  </head>
-  <body>
-    <div class="output">
-      <ul>
+<head>
+  <meta charset="utf-8">
+  <title>Javascript Fundamentals</title>
+</head>
+<body>
+  <div class="output">
+    <ul>
 
-      </ul>
-    </div>
-    <div class="capital">
-      <ul>
+    </ul>
+  </div>
+  <div class="capital">
+    <ul>
 
-      </ul>
-    </div>
-    <script>
-    //Using idexOf function
-    var list = document.querySelector('.output ul');
-    //list.innerHTML = ' ';
+    </ul>
+  </div>
+  <div class="string">
+    <ul>
 
-    var greetings  = ['Happy Birthday!',
-                    'Merry Christmas my love!',
-                    'A happy Christmas to all the family!',
-                    'you\'re all i want for my Christmas!',
-                    'Get well soon'];
-    for (var i = 0; i < greetings.length; i++) {
-      //var input = greetings[i];
-      if(greetings[i].indexOf('Christmas') !== -1){
-        var result = greetings[i];
-        var listitem = document.createElement('li');
-        listitem.textContent = result;
-        list.appendChild(listitem);
-      }
-    }
+    </ul>
+  </div>
+  <script>
+  //Filtering greeting messages
+  //Using indexOf function
+  var list = document.querySelector('.output ul');
+  //list.innerHTML = ' ';
 
-   //using toLowerCase(), Slice() and toUpperCase() function
-    var capitalList = document.querySelector('.capital ul'); 
-    capitalList.innerHTML = ' ';
-
-    var capitalised = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
-
-    for(var i = 0; i < capitalised.length; i++){
-      var lower = capitalised[i].toLowerCase();
-      var firstLetter = lower.slice(0,1);
-      var capital = lower.replace(firstLetter,firstLetter.toUpperCase());
+  var greetings  = ['Happy Birthday!',
+  'Merry Christmas my love!',
+  'A happy Christmas to all the family!',
+  'you\'re all i want for my Christmas!',
+  'Get well soon'];
+  for (var i = 0; i < greetings.length; i++) {
+    //var input = greetings[i];
+    if(greetings[i].indexOf('Christmas') !== -1){
+      var result = greetings[i];
       var listitem = document.createElement('li');
-      listitem.textContent = capital;
-      capitalList.appendChild(listitem);
+      listitem.textContent = result;
+      list.appendChild(listitem);
     }
-    </script>
-  </body>
+  }
+
+  //Fixing capitalization
+  //using toLowerCase(), Slice() and toUpperCase() function
+  var capitalList = document.querySelector('.capital ul');
+  capitalList.innerHTML = ' ';
+
+  var capitalised = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+
+  for(var i = 0; i < capitalised.length; i++){
+    var lower = capitalised[i].toLowerCase();
+    var firstLetter = lower.slice(0,1);
+    var capital = lower.replace(firstLetter,firstLetter.toUpperCase());
+    var listitem = document.createElement('li');
+    listitem.textContent = capital;
+    capitalList.appendChild(listitem);
+  }
+
+  //Making new strings from old parts
+  //Using indexOf() and Slice() functions
+  var stringList = document.querySelector('.string ul');
+  stringList.innerHTML = ' ';
+
+  var stringArray = ['MAN675847583748sjt567654;Manchester Piccadilly',
+                     'GNF576746573fhdg4737dh4;Greenfield',
+                     'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+                     'SYB4f65hf75f736463;Stalybridge',
+                     'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+
+for(var i = 0; i < stringArray.length; i++){
+  var firstthreeLetters = stringArray[i].slice(0,3);
+  var semiC = stringArray[i].indexOf(';');
+  var restString =  stringArray[i].slice(semiC + 1);
+  var result = firstthreeLetters + ' : ' + restString;
+  var listitem = document.createElement('li');
+  listitem.textContent = result;
+  stringList.appendChild(listitem);
+}
+
+  </script>
+</body>
 </html>
