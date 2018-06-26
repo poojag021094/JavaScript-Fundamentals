@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Fundamentals</title>
+  </head>
+  <body>
+    <div class="output">
+      <ul>
+
+      </ul>
+    </div>
+    <script>
+    var list = document.querySelector('.output ul');
+    //list.innerHTML = ' ';
+
+    var greetings  = ['Happy Birthday!',
+                    'Merry Christmas my love!',
+                    'A happy Christmas to all the family!',
+                    'you\'re all i want for my Christmas!',
+                    'Get well soon'];
+    for (var i = 0; i < greetings.length; i++) {
+      //var input = greetings[i];
+      if(greetings[i].indexOf('Christmas') !== -1){
+        var result = greetings[i];
+        var listitem = document.createElement('li');
+        listitem.textContent = result;
+        list.appendChild(listitem);
+      }
+    }
+    </script>
+  </body>
+</html>
