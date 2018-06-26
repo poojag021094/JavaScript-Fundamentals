@@ -10,7 +10,13 @@
 
       </ul>
     </div>
+    <div class="capital">
+      <ul>
+
+      </ul>
+    </div>
     <script>
+    //Using idexOf function
     var list = document.querySelector('.output ul');
     //list.innerHTML = ' ';
 
@@ -27,6 +33,21 @@
         listitem.textContent = result;
         list.appendChild(listitem);
       }
+    }
+
+   //using toLowerCase(), Slice() and toUpperCase() function
+    var capitalList = document.querySelector('.capital ul'); 
+    capitalList.innerHTML = ' ';
+
+    var capitalised = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+
+    for(var i = 0; i < capitalised.length; i++){
+      var lower = capitalised[i].toLowerCase();
+      var firstLetter = lower.slice(0,1);
+      var capital = lower.replace(firstLetter,firstLetter.toUpperCase());
+      var listitem = document.createElement('li');
+      listitem.textContent = capital;
+      capitalList.appendChild(listitem);
     }
     </script>
   </body>
