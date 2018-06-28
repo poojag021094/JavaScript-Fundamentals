@@ -20,6 +20,20 @@
 
     </ul>
   </div>
+  <div class="Price_Cal">
+    <ul>
+
+    </ul>
+    <p id="totalBox"></p>
+  </div>
+  <div class="Search">
+    <h2>Top 5 Searches</h2>
+    <input type="text" name="" value="">
+    <button type="button" name="button">Search</button>
+    <ul>
+
+    </ul>
+  </div>
   <script>
   //Filtering greeting messages
   //Using indexOf function
@@ -78,6 +92,88 @@ for(var i = 0; i < stringArray.length; i++){
   stringList.appendChild(listitem);
 }
 
-  </script>
+/*
+//Array Practice................
+  var myData = 'Manchester,London,Liverpool,Birmingham,Leeds'
+  myArray = myData.split(',');
+  console.log(myArray);
+  console.log(myArray.length);
+
+  myNewString = myArray.join(',');
+  console.log(myNewString);
+  console.log(myNewString.length);
+
+  var addItem = myArray.push('Pooja');
+  console.log(myArray);
+  console.log(addItem);
+  console.log(myArray.length);
+
+  var removedItem = myArray.pop();
+  console.log(myArray);
+  console.log(removedItem);
+*/
+
+//Using Array methods and functions
+var myList = document.querySelector('.Price_Cal ul');
+var totalBox = document.getElementById('totalBox');
+myList.innerHTML = ' ';
+totalBox.textContent = ' ';
+var total = 0;
+
+var products = ['Underpants:6.99',
+'Socks:5.99',
+'T-shirt:14.99',
+'Trousers:31.99',
+'Shoes:23.99'];
+
+for (var i = 0; i < products.length; i++) {
+  var subArray = products[i].split(':');
+  console.log(subArray);
+  var name = subArray[0];
+  var price = Number(subArray[1]);
+  total += price;
+  var items = name + ' - ' + '$' + price;
+  var listItems = document.createElement('li');
+  listItems.textContent = items;
+
+  console.log(listItems);
+
+  myList.appendChild(listItems);
+  totalBox.textContent = 'Total' + ' : '+ '$' + total.toFixed(2);
+}
+
+//Top 5 Searches function
+var myList = document.querySelector('.Search ul');
+var search = document.querySelector('.Search input');
+var btn = document.querySelector('.Search button');
+
+myList.innerHTML = ' ';
+search.focus();
+
+var myHistory = [];
+
+btn.onclick = function(){
+  if (search.value !== ' ') {
+    myHistory.unshift(search.value);
+    console.log(myHistory);
+    myList.innerHTML = ' ';
+    search.value = ' ';
+    search.focus();
+
+    for (var i = 0; i < myHistory.length; i++) {
+      var itemText = myHistory[i];
+      var list = document.createElement('li');
+      list.textContent = itemText;
+      myList.appendChild(list);
+    }
+    if(myHistory.length >=5){
+      myHistory.pop();
+    }
+    search.value = '';
+    search.focus();
+  }
+}
+
+</script>
 </body>
 </html>
