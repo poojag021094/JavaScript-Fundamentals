@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Weather Type</title>
+</head>
+<body>
+  <label for="Weather">Select the weather of your choice :</label>
+  <select class="weather">
+    <option value=" ">Make a choice</option>
+    <option value="Sunny">Sunny</option>
+    <option value="Rainy">Rainy</option>
+    <option value="Spring">Spring</option>
+    <option value="Autumn">Autumn</option>
+  </select>
+  <p></p>
+  <script>
+  var select  = document.querySelector('select');
+  var para = document.querySelector('p');
+
+  select.addEventListener('change',changeWeather);
+
+  function changeWeather(){
+    var weather = select.value;
+    if(weather === 'Sunny'){
+      para.textContent = 'YAY! its Sunny!';
+    }else if (weather === 'Rainy') {
+      para.textContent = 'Its raining outside!. Better carry Umbrella with you!';
+    }else if (weather === 'Spring') {
+      para.textContent = 'Yo! its like spring outside!';
+    }else if (weather === 'Autumn') {
+      para.textContent = 'its Autumn! Everything is falling apart!';
+    }else {
+      para.textContent = 'Nothing to say!';
+    }
+  }
+  </script>
+</body>
+</html>
