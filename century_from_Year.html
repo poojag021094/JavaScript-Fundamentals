@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Century from Year</title>
+  </head>
+  <body>
+    <div class="CenturyFromYear">
+      <label for="year">Enter year of your choice:</label>
+      <input type="text" name="" id="year" placeholder="Enter your Year here.." required><br><br>
+      <button type="button" name="button">Submit</button>
+      <p></p>
+    </div>
+    <script>
+    var myYear = document.getElementById('year');
+    var result = document.querySelector('.CenturyFromYear p');
+    var btn = document.querySelector('.CenturyFromYear button');
+    myYear.focus();
+
+
+    btn.addEventListener('click',centuryFromYear);
+
+//Century From Year conversion function goes here
+    function centuryFromYear(){
+      myYearValue = myYear.value;
+      var newYear = myYearValue.length;
+      var stYear;
+      console.log(newYear);
+      if(newYear >= 4){
+        stYear = myYearValue.toString().substring(0,2);
+        console.log(stYear);
+        if (myYearValue % 100 !== 0) {
+          stYear = Number(parseInt(stYear) + 1);
+        }else {
+          stYear = Number(parseInt(stYear));
+        };
+      }else if (newYear >= 3) {
+        stYear = myYearValue.toString().substring(0,1);
+        if (year % 100 !== 0) {
+          stYear = (parseInt(stYear) + 1);
+        }else {
+          stYear = (parseInt(stYear));
+        }
+      }
+      result.textContent = 'Your Year lies in ' + stYear + ' Century';
+      myYear.focus();
+    }
+    //centuryFromYear(2014);
+    </script>
+  </body>
+</html>
