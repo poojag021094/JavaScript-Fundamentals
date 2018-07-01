@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Website Theme</title>
+  </head>
+  <body>
+    <label for="theme">Select your theme:</label>
+    <select class="theme">
+      <option value=" ">--Make a selection--</option>
+      <option value="Black">Black</option>
+      <option value="White">White</option><br><br>
+    </select>
+    <h1>This is my website!</h1>
+
+    <script>
+      var selectVal = document.querySelector('.theme');
+      var html = document.querySelector('html');
+      themeValue = selectVal.value;
+      console.log(themeValue);
+      selectVal.onchange = function(){
+       themeValue = selectVal.value;
+       console.log(themeValue);
+        if (themeValue === 'Black') {
+          html.style.backgroundColor = 'black';
+          html.style.color = 'white';
+        }else {
+          html.style.backgroundColor = 'white';
+          html.style.color = 'black';
+        }
+      }
+    </script>
+  </body>
+</html>
