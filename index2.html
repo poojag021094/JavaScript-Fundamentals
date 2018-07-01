@@ -34,6 +34,12 @@
 
     </ul>
   </div>
+  <div class="shopping">
+    <h2>Shopping done or not!?</h2>
+    <label for="shoppingcheck">Has the shopping done or not?</label>
+    <input type="checkbox" name="checkbox" id="shoppingcheck">
+    <p></p>
+  </div>
   <script>
   //Filtering greeting messages
   //Using indexOf function
@@ -155,7 +161,6 @@ var myHistory = [];
 btn.onclick = function(){
   if (search.value !== ' ') {
     myHistory.unshift(search.value);
-    console.log(myHistory);
     myList.innerHTML = ' ';
     search.value = ' ';
     search.focus();
@@ -173,7 +178,26 @@ btn.onclick = function(){
     search.focus();
   }
 }
+//shoppingDone or not function goes here
+var checkbox = document.querySelector('.shopping input');
+    var result = document.querySelector('.shopping p');
+    shoppingDone = false;
 
+    checkbox.addEventListener('change',function(){
+      checkbox.disabled = true;
+      shoppingDone = true;
+      updatedAllowance();
+    });
+
+    function updatedAllowance(){
+      if(shoppingDone ===true){
+        childAllowance = 10;
+      }else {
+        childAllowance = 5;
+      }
+      result.textContent = 'Child has earned $' + childAllowance + ' this week.'
+    }
+    updatedAllowance();
 </script>
 </body>
 </html>
