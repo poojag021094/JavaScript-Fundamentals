@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>A Simple Calender</title>
+
+  <!--Styling part goes here-->
+  <style media="screen">
+  li{
+    display: block;
+    width: 110px;
+    height: 20px;
+    float: left;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background: #4A2DB6;
+    padding: 6px;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #4A2DB6;
+  }
+  ul{
+    padding-left: 0;
+  }
+  </style> <!--Styling ends here-->
+</head>
+
+<!-- Body of the simple calander goes here -->
+<body>
+  <label for="month">Select month: </label>
+  <select class="month">
+    <option value=" ">Select</option>
+    <option value="January">January</option>
+    <option value="February">February</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="September">September</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option value="December">December</option>
+  </select>
+  <h2></h2>
+  <ul>
+
+  </ul><!-- Body ends here -->
+
+  <!--Scripting part goes here-->
+  <script>
+  var select = document.querySelector('select');
+  var myList = document.querySelector('ul');
+  var heading = document.querySelector('h2');
+
+//Function for Simple Calender goes here
+//One of Doing -- this does not include anything on landing page i.e. shows Calender only after selecting a month
+/*
+  select.onchange = function(){
+    var selectVal = select.value;
+    heading.textContent = selectVal;
+    var days = 31;
+    if(selectVal === 'February'){
+      days = 28;
+    }else if (selectVal === 'April' || selectVal === 'June' || selectVal === 'September' || selectVal === 'November') {
+      days = 30;
+    }
+    myList.innerHTML = ' ';
+    for (var i = 1; i <= days; i++) {
+      var lisItem = document.createElement('li');
+      lisItem.textContent = i;
+      myList.appendChild(lisItem);
+    }
+  }*/
+
+//Second way of Doing -- this does show  January month on landing page.
+  select.onchange = function(){
+    var selectVal = select.value;
+    heading.textContent = selectVal;
+    var days = 31;
+    if(selectVal === 'February'){
+      days = 28;
+    }else if (selectVal === 'April' || selectVal === 'June' || selectVal === 'September' || selectVal === 'November') {
+      days = 30;
+    }
+    myList.innerHTML = ' ';
+    creaCalendar(days, selectVal);
+    }
+    function creaCalendar(days, selectVal){
+      heading.textContent = selectVal;
+      for (var i = 1; i <= days; i++) {
+        var lisItem = document.createElement('li');
+        lisItem.textContent = i;
+        myList.appendChild(lisItem);
+      }
+    }
+    creaCalendar('31','January');
+
+  </script>
+</body>
+</html>
